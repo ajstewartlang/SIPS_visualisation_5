@@ -14,7 +14,6 @@ full_trains %>%
   filter(service == "International") %>%
   mutate(departure_station = toTitleCase(tolower(departure_station))) %>%
   mutate(departure_station = reorder(departure_station, num_late_at_departure)) %>%
-  mutate(month = factor(month, levels = 1:12, labels = month.name)) %>%
   ggplot(aes(x = departure_station, y = num_late_at_departure, 
              colour = departure_station)) +
   geom_boxplot() +
